@@ -1,0 +1,117 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4 col-md-8 mx-auto">
+
+    <h2 class="text-center text-success mb-4">
+      Product Registration Form
+    </h2>
+
+    <form [formGroup]="customForm" (ngSubmit)="onSubmit()">
+
+      <!-- Product Name -->
+      <div class="mb-3">
+        <label>Product Name</label>
+        <input type="text" class="form-control" formControlName="productName">
+
+        <div class="text-danger"
+             *ngIf="customForm.get('productName')?.touched &&
+                    customForm.get('productName')?.invalid">
+          Product Name is required.
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label>Category</label>
+        <select class="form-control" formControlName="category">
+          <option value="">Select Category</option>
+          <option>Electronics</option>
+          <option>Appliances</option>
+          <option>Furniture</option>
+        </select>
+
+        <div class="text-danger"
+             *ngIf="customForm.get('category')?.touched &&
+                    customForm.get('category')?.invalid">
+          Category is required.
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <label>Price</label>
+        <input type="number" class="form-control" formControlName="price">
+
+        <div class="text-danger"
+             *ngIf="customForm.get('price')?.touched &&
+                    customForm.get('price')?.invalid">
+          Price must be greater than 0.
+        </div>
+      </div>
+
+      <!-- Stock -->
+      <div class="mb-3">
+        <label>Stock Quantity</label>
+        <input type="number" class="form-control" formControlName="stock">
+
+        <div class="text-danger"
+             *ngIf="customForm.get('stock')?.touched &&
+                    customForm.get('stock')?.invalid">
+          Stock must be greater than 0.
+        </div>
+      </div>
+
+      <!-- Supplier Email -->
+      <div class="mb-3">
+        <label>Supplier Email</label>
+        <input type="email" class="form-control" formControlName="supplier">
+
+        <div class="text-danger"
+             *ngIf="customForm.get('supplier')?.touched &&
+                    customForm.get('supplier')?.invalid">
+          Valid email is required.
+        </div>
+      </div>
+
+      <!-- Warranty -->
+      <div class="mb-3">
+        <label>Warranty</label><br>
+
+        <input type="radio" value="1 Year"
+               formControlName="warranty"> 1 Year
+
+        <input type="radio" value="2 Years"
+               formControlName="warranty"
+               class="ms-3"> 2 Years
+
+        <div class="text-danger"
+             *ngIf="customForm.get('warranty')?.touched &&
+                    customForm.get('warranty')?.invalid">
+          Please select warranty option.
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea class="form-control"
+                  formControlName="description"
+                  rows="3"></textarea>
+
+        <div class="text-danger"
+             *ngIf="customForm.get('description')?.touched &&
+                    customForm.get('description')?.invalid">
+          Description is required.
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="btn btn-success w-100"
+              [disabled]="customForm.invalid">
+        Register Product
+      </button>
+
+    </form>
+
+  </div>
+</div>
