@@ -1,0 +1,168 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4 col-md-8 mx-auto">
+
+    <h2 class="text-center text-warning mb-4">
+      Reactive Registration Form
+    </h2>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+      <!-- Full Name -->
+      <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text"
+               class="form-control"
+               formControlName="fullName">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('fullName')?.touched &&
+                    registrationForm.get('fullName')?.invalid">
+          Full Name is required.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email"
+               class="form-control"
+               formControlName="email">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('email')?.touched &&
+                    registrationForm.get('email')?.invalid">
+
+          <div *ngIf="registrationForm.get('email')?.errors?.['required']">
+            Email is required.
+          </div>
+
+          <div *ngIf="registrationForm.get('email')?.errors?.['email']">
+            Invalid email format.
+          </div>
+        </div>
+      </div>
+
+      <!-- Age -->
+      <div class="mb-3">
+        <label>Age</label>
+        <input type="number"
+               class="form-control"
+               formControlName="age">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('age')?.touched &&
+                    registrationForm.get('age')?.invalid">
+          Must be at least 18 years old.
+        </div>
+      </div>
+
+      <!-- Department -->
+      <div class="mb-3">
+        <label>Department</label>
+        <select class="form-control"
+                formControlName="department">
+          <option value="">Select Department</option>
+          <option>IT</option>
+          <option>HR</option>
+          <option>Marketing</option>
+        </select>
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('department')?.touched &&
+                    registrationForm.get('department')?.invalid">
+          Please select a department.
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="mb-3">
+        <label>Experience Level</label><br>
+
+        <input type="radio"
+               value="Junior"
+               formControlName="experience"> Junior
+
+        <input type="radio"
+               value="Mid"
+               formControlName="experience"
+               class="ms-3"> Mid
+
+        <input type="radio"
+               value="Senior"
+               formControlName="experience"
+               class="ms-3"> Senior
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('experience')?.touched &&
+                    registrationForm.get('experience')?.invalid">
+          Please select experience level.
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="mb-3">
+        <label>Phone Number</label>
+        <input type="text"
+               class="form-control"
+               formControlName="phone">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('phone')?.touched &&
+                    registrationForm.get('phone')?.invalid">
+
+          <div *ngIf="registrationForm.get('phone')?.errors?.['required']">
+            Phone number is required.
+          </div>
+
+          <div *ngIf="registrationForm.get('phone')?.errors?.['pattern']">
+            Must be 11 digits.
+          </div>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password"
+               class="form-control"
+               formControlName="password">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('password')?.touched &&
+                    registrationForm.get('password')?.invalid">
+
+          <div *ngIf="registrationForm.get('password')?.errors?.['required']">
+            Password is required.
+          </div>
+
+          <div *ngIf="registrationForm.get('password')?.errors?.['minlength']">
+            Minimum 6 characters required.
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label>Confirm Password</label>
+        <input type="password"
+               class="form-control"
+               formControlName="confirmPassword">
+
+        <div class="text-danger"
+             *ngIf="registrationForm.get('confirmPassword')?.touched &&
+                    registrationForm.get('confirmPassword')?.errors?.['mismatch']">
+          Passwords do not match.
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="btn btn-warning w-100"
+              [disabled]="registrationForm.invalid">
+        Submit
+      </button>
+
+    </form>
+
+  </div>
+</div>
