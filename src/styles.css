@@ -1,0 +1,96 @@
+/* Global background */
+
+body{
+    margin:0;
+    padding:40px;
+    font-family:'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    color:white;
+}
+
+/* Title */
+
+p{
+    text-align:center;
+    font-size:36px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:40px;
+    color:#00f2fe;
+    text-shadow:0 0 15px #00f2fe;
+}
+
+/* Form container */
+
+.form{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:30px;
+}
+
+/* Inputs */
+
+input{
+    padding:10px 15px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    backdrop-filter:blur(6px);
+    transition:0.3s;
+}
+
+input::placeholder{
+    color:#bbb;
+}
+
+input:focus{
+    box-shadow:0 0 10px #00f2fe;
+}
+
+/* Add button */
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00f2fe,#4facfe);
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 0 10px #00f2fe;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00f2fe;
+}
+
+/* Movie cards */
+
+h3{
+    width:60%;
+    margin:15px auto;
+    padding:15px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 15px rgba(0,255,255,0.2);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Delete button */
+
+h3 button{
+    background:linear-gradient(45deg,#ff416c,#ff4b2b);
+    box-shadow:0 0 10px #ff416c;
+}
+
+h3 button:hover{
+    box-shadow:0 0 20px #ff416c;
+}

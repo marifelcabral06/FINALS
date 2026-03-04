@@ -1,0 +1,61 @@
+<div class="container mt-5">
+
+  <h1 class="text-center mb-4">🎬 Movie Collection</h1>
+
+  <div class="card p-4 shadow mb-4">
+    <div class="row g-2">
+
+      <div class="col">
+        <input id="newTitle" class="form-control" placeholder="Movie Title">
+      </div>
+
+      <div class="col">
+        <input id="newGenre" class="form-control" placeholder="Genre">
+      </div>
+
+      <div class="col">
+        <input id="newDirector" class="form-control" placeholder="Director">
+      </div>
+
+      <div class="col">
+        <input id="newYear" class="form-control" placeholder="Year">
+      </div>
+
+      <div class="col">
+        <input id="newRating" class="form-control" placeholder="Rating">
+      </div>
+
+      <div class="col">
+        <button class="btn btn-primary w-100" (click)="addMovie()">
+          Add Movie
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card shadow p-4">
+
+    <h3>Movie List</h3>
+
+    <div *ngFor="let movie of movies" class="border p-3 mb-2 rounded">
+
+      <b>{{ movie.title }}</b>
+      <br>
+
+      Genre: {{ movie.genre }} |
+      Director: {{ movie.director }} |
+      Year: {{ movie.year }} |
+      Rating: {{ movie.rating }}
+
+      <br><br>
+
+      <button class="btn btn-danger btn-sm" (click)="deleteMovie(movie.id)">
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
